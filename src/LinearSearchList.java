@@ -8,10 +8,10 @@ import java.util.List;
 public class LinearSearchList extends SearchList {
 	
 	/**
-	 * @param ITEM_LIST
+	 * @param itemList
 	 */
-	public LinearSearchList(List<String> ITEM_LIST) {
-		super(ITEM_LIST);
+	public LinearSearchList(List<String> itemList) {
+		super(itemList);
 	}
 
 	/* (non-Javadoc)
@@ -19,8 +19,8 @@ public class LinearSearchList extends SearchList {
 	 */
 	@Override
 	public Integer getIndex(String key) {
-		for(int i=0;i<ITEM_LIST.size();i++) {
-			if(ITEM_LIST.get(i).equals(key)) {
+		for(int i=0;i<itemList.size();i++) {
+			if(itemList.get(i).equals(key)) {
 				return i;
 			}
 		}
@@ -33,8 +33,8 @@ public class LinearSearchList extends SearchList {
 	@Override
 	public Integer[] getIndexes(String key) {
 		List<Integer> lst = new ArrayList<Integer>();
-		for(int i=0;i<ITEM_LIST.size();i++) {
-			if(ITEM_LIST.get(i).equals(key)) {
+		for(int i=0;i<itemList.size();i++) {
+			if(itemList.get(i).equals(key)) {
 				lst.add(i);
 			}
 		}

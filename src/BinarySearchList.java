@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Comparator;
 /**
  * @author http://software-engineering-lab.com/
  *
@@ -15,7 +15,7 @@ public class BinarySearchList extends SearchList {
 	/**
 	 * 最大値の初期値
 	 */
-	final int MAX = ITEM_LIST.size()-1;
+	final int MAX = itemList.size()-1;
 
 	/**
 	 * 探索対象の文字列
@@ -23,10 +23,10 @@ public class BinarySearchList extends SearchList {
 	String target;
 
 	/**
-	 * @param ITEM_LIST
+	 * @param itemList
 	 */
-	public BinarySearchList(List<String> ITEM_LIST) {
-		 super(ITEM_LIST);
+	public BinarySearchList(List<String> itemList) {
+		 super(itemList);
 	}
 
 	/* (non-Javadoc)
@@ -34,8 +34,8 @@ public class BinarySearchList extends SearchList {
 	 */
 	@Override
 	public Integer getIndex(String key) {
-		this.target = key;
-		return seek(this.MIN,this.MAX);
+		target = key;
+		return seek(MIN,MAX);
 	}
 
 	/* (non-Javadoc)
@@ -43,17 +43,17 @@ public class BinarySearchList extends SearchList {
 	 */
 	@Override
 	public Integer[] getIndexes(String key) {
-		this.target = key;
+		target = key;
 		List<Integer> lst = new ArrayList<Integer>();
-		lst.add(seek(this.MIN,this.MAX));
+		lst.add(seek(MIN,MAX));
 		// 0件であればばブレークする
 		if(lst.get(0)==null) {
 			return null;
 		}
 		
 		// ソート順されている前提なので取得した配列の後ろにあるか探索
-		for(int i=lst.get(0)+1;i<ITEM_LIST.size();i++) {
-			if(ITEM_LIST.get(i)==key) {
+		for(int i=lst.get(0)+1;i<itemList.size();i++) {
+			if(itemList.get(i)==key) {
 				lst.add(i);
 			} else {
 				break;
@@ -61,7 +61,7 @@ public class BinarySearchList extends SearchList {
 		}
 		// ソート順されている前提なので取得した配列の前ににあるか探索
 		for(int i=lst.get(0)-1;i<0;i--) {
-			if(ITEM_LIST.get(i)==key) {
+			if(itemList.get(i)==key) {
 				lst.add(i);
 			} else {
 				break;
@@ -93,9 +93,9 @@ public class BinarySearchList extends SearchList {
 			return null;
 		}
 		int i = min + (max - min) / 2;
-		if(target.compareTo(ITEM_LIST.get(i)) < 0) {
+		if(target.compareTo(itemList.get(i)) < 0) {
 			return seek(min,i-1);
-		} else if(target.compareTo(ITEM_LIST.get(i)) > 0) {
+		} else if(target.compareTo(itemList.get(i)) > 0) {
 			return seek(i+1,max);
 		}
 		return i;	

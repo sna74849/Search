@@ -8,12 +8,12 @@ public abstract class SearchArray implements Search {
 	/**
 	 * 探索対象配列
 	 */
-	protected String ITEMS[];
+	protected String items[];
 	
 	/**
 	 * @param items 探索対象配列
 	 */
 	public SearchArray(String items[]) {
-		this.ITEMS = items;
+		this.items = items;
 	}
 }

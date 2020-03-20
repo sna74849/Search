@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * @author http://software-engineering-lab.com/
  *
@@ -12,7 +14,7 @@ public class BinarySearchArray extends SearchArray {
 	/**
 	 * 最大値の初期値
 	 */
-	final int MAX = ITEMS.length-1;
+	final int MAX = items.length-1;
 
 	/**
 	 * 探索対象の文字列
@@ -31,8 +33,8 @@ public class BinarySearchArray extends SearchArray {
 	 */
 	@Override
 	public Integer getIndex(String key) {
-		this.target = key;
-		return seek(this.MIN,this.MAX);
+		target = key;
+		return seek(MIN,MAX);
 	}
 
 	/* (non-Javadoc)
@@ -40,16 +42,16 @@ public class BinarySearchArray extends SearchArray {
 	 */
 	@Override
 	public Integer[] getIndexes(String key) {
-		this.target = key;
-		Integer tmp = seek(this.MIN,this.MAX);
+		target = key;
+		Integer tmp = seek(MIN,MAX);
 		// 0件であればばブレークする
 		if(tmp==null) {
 			return null;
 		}
 		// ソート順されている前提なので取得した配列の後ろにあるか探索
 		int ctrOne = 0;
-		for(int i=tmp+1;i<ITEMS.length;i++) {
-			if(ITEMS[i]==key) {
+		for(int i=tmp+1;i<items.length;i++) {
+			if(items[i]==key) {
 				ctrOne++;
 			} else {
 				break;
@@ -58,7 +60,7 @@ public class BinarySearchArray extends SearchArray {
 		// ソート順されている前提なので取得した配列の前ににあるか探索
 		int ctrTwo = 0;
 		for(int i=tmp-1;i<0;i--) {
-			if(ITEMS[i]==key) {
+			if(items[i]==key) {
 				ctrTwo++;
 			} else {
 				break;
@@ -101,9 +103,9 @@ public class BinarySearchArray extends SearchArray {
 			return null;
 		}
 		int i = min + (max - min) / 2;
-		if(target.compareTo(ITEMS[i]) < 0) {
+		if(target.compareTo(items[i]) < 0) {
 			return seek(min,i-1);
-		} else if(target.compareTo(ITEMS[i]) > 0) {
+		} else if(target.compareTo(items[i]) > 0) {
 			return seek(i+1,max);
 		}
 		return i;	
