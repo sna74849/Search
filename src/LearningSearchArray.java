@@ -78,7 +78,7 @@ public class LearningSearchArray extends SearchArray {
 	 * 探索時間計測
 	 * @param key 探索対象文字列
 	 * @param srch サーチオブジェクト
-	 * @return
+	 * @return 探索時間
 	 */
 	private static long getSearchTime(String key, Search srch) {
 		/**
