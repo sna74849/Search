@@ -7,17 +7,17 @@ public class BinarySearchArray extends SearchArray {
 	/**
 	 * 最小値の初期値
 	 */
-	final int MIN = 0;
+	private final int MIN = 0;
 	
 	/**
 	 * 最大値の初期値
 	 */
-	final int MAX = items.length-1;
+	private final int MAX = items.length-1;
 
 	/**
 	 * 探索対象の文字列
 	 */
-	String target;
+	private String target;
 	
 	/**
 	 * @param items 探索対象配列
@@ -49,7 +49,7 @@ public class BinarySearchArray extends SearchArray {
 		// ソート順されている前提なので取得した配列の後ろにあるか探索
 		int ctrOne = 0;
 		for(int i=tmp+1;i<items.length;i++) {
-			if(items[i]==key) {
+			if(items[i].equals(key)) {
 				ctrOne++;
 			} else {
 				break;
@@ -57,7 +57,7 @@ public class BinarySearchArray extends SearchArray {
 		}
 		// ソート順されている前提なので取得した配列の前ににあるか探索
 		int ctrTwo = 0;
-		for(int i=tmp-1;i<0;i--) {
+		for(int i=tmp-1;i>0;i--) {
 			if(items[i]==key) {
 				ctrTwo++;
 			} else {

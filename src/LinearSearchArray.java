@@ -17,7 +17,7 @@ public class LinearSearchArray extends SearchArray {
 	@Override
 	public Integer getIndex(String key) {
 		for (int i=0;i<items.length;i++) {
-			if(key.equals(items[i])) {
+			if(items[i].equals(key)) {
 				return i;
 			}
 		}
@@ -32,7 +32,7 @@ public class LinearSearchArray extends SearchArray {
 		Integer per[] = null;
 		int ctr = 0;
 		for (int i=0;i<items.length;i++) {
-			if(key.equals(items[i])) {
+			if(items[i].equals(key)) {
 				// 配列への追加には配列数を再定義する必要があるそのために一時退避
 				if(per==null) {
 					per = new Integer[ctr+1];

@@ -19,12 +19,15 @@ public class LinearSearchList extends SearchList {
 	 */
 	@Override
 	public Integer getIndex(String key) {
-		for(int i=0;i<itemList.size();i++) {
-			if(itemList.get(i).equals(key)) {
-				return i;
-			}
-		}
-		return null;
+
+		return itemList.indexOf(key);
+		
+//		for(int i=0;i<itemList.size();i++) {
+//			if(itemList.get(i).equals(key)) {
+//				return i;
+//			}
+//		}
+//		return null;
 	}
 	
 	/* (non-Javadoc)
@@ -38,7 +41,7 @@ public class LinearSearchList extends SearchList {
 				lst.add(i);
 			}
 		}
-		return lst.toArray(new Integer[lst.size()]);
+		return lst.size()==0 ? null : lst.toArray(new Integer[lst.size()]);
 	}
 
 	/* (non-Javadoc)
@@ -46,9 +49,9 @@ public class LinearSearchList extends SearchList {
 	 */
 	@Override
 	public boolean existenceOf(String key) {
-		if(getIndex(key)==null) {
-			return false;
+		if(getIndex(key)!=null) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 }

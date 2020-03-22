@@ -9,17 +9,17 @@ public class BinarySearchList extends SearchList {
 	/**
 	 * 最小値の初期値
 	 */
-	final int MIN = 0;
+	private final int MIN = 0;
 	
 	/**
 	 * 最大値の初期値
 	 */
-	final int MAX = itemList.size()-1;
+	private final int MAX = itemList.size()-1;
 
 	/**
 	 * 探索対象の文字列
 	 */
-	String target;
+	private String target;
 
 	/**
 	 * @param itemList
@@ -52,21 +52,21 @@ public class BinarySearchList extends SearchList {
 		
 		// ソート順されている前提なので取得した配列の後ろにあるか探索
 		for(int i=lst.get(0)+1;i<itemList.size();i++) {
-			if(itemList.get(i)==key) {
+			if(itemList.get(i).equals(key)) {
 				lst.add(i);
 			} else {
 				break;
 			}
 		}
 		// ソート順されている前提なので取得した配列の前ににあるか探索
-		for(int i=lst.get(0)-1;i<0;i--) {
-			if(itemList.get(i)==key) {
+		for(int i=lst.get(0)-1;i>0;i--) {
+			if(itemList.get(i).equals(key)) {
 				lst.add(i);
 			} else {
 				break;
 			}
 		}
-		return lst.toArray(new Integer[lst.size()]);
+		return lst.size()==0 ? null : lst.toArray(new Integer[lst.size()]);
 	}
 
 	/* (non-Javadoc)
