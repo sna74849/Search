@@ -28,6 +28,9 @@ public class TestSearch {
 		}
 	}
 	
+	/**
+	 * ファーストネーム配列(ソート済み)
+	 */
 	private static final String[] NAMES = {TestCase.LOWEST_CASE.getValue(),
 			"Aaron",
 			"Abdiel",
